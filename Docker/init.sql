@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS profile (
+  id SERIAL PRIMARY KEY,
+  pseudonym TEXT UNIQUE NOT NULL,
+  consent BOOLEAN NOT NULL,
+  "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS embedding (
+  id SERIAL PRIMARY KEY,
+  profileId INTEGER REFERENCES profile(id) ON DELETE CASCADE,
+  textEmbedding DOUBLE PRECISION[],
+  imageEmbedding DOUBLE PRECISION[],
+  graphEmbedding DOUBLE PRECISION[],
+  "clusterId" INTEGER
+);
