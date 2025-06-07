@@ -23,7 +23,7 @@
 3 **Install Stable Diffusion WebUI (Automatic1111)**
   `docker run -d --gpus all --name sd-webui \
   -p 7860:7860 \`
-  -v "$(pwd)/models:/stable-diffusion-webui/models" \
+  -v $(pwd)/models:/stable-diffusion-webui/models \
   AUTOMATIC1111/stable-diffusion-webui:latest \
   --medvram --enable-insecure-extension-access`
 
